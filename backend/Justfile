@@ -1,0 +1,13 @@
+# This is the default target, which will be built when 
+# you invoke make
+all: build
+
+# Build gamescope for SteamOS
+build:
+	meson setup out src
+	ninja -C out
+
+# Clean up build output
+clean:
+	rm -rf out
+

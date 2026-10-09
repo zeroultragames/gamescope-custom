@@ -55,3 +55,16 @@ out/*
 cli/
 cli/*
 cli/decky
+
+# Ignore unneeded files from the src repo
+backend/src/.git
+backend/src/tests
+backend/src/scripts
+backend/src/tools
+backend/src/scripts
+backend/src/.github
+backend/src/.vscode
+backend/src/README.md
+backend/src/.editorconfig
+backend/src/subprojects/libdisplay-info/subprojects/v4l-utils.wrap
+

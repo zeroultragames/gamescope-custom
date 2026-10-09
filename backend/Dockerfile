@@ -5,5 +5,16 @@
 #FROM ghcr.io/steamdeckhomebrew/holo-toolchain-go:latest
 FROM ghcr.io/steamdeckhomebrew/holo-base:latest
 
+WORKDIR /app
+RUN <<EOF
+  pacman -S --noconfirm --needed git just cmake meson ninja pkgconf \
+  libdrm glib2 libx11 libxcb libxcomposite libxdamage libxi libxmu libxres libxtst libxxf86vm \
+  wayland libxkbcommon libdecor pipewire libpipewire seatd \
+  vulkan-icd-loader vulkan-tools libavif libei openvr sdl2 glm stb \
+  xtrans libinput xorg-xwayland libxcb xcb-util-wm benchmark catch2
+  pacman -Rns --noconfirm libdisplay-info
+EOF
+
 # entrypoint.sh should always be located in the backend folder
 ENTRYPOINT [ "/backend/entrypoint.sh" ]
+
